@@ -76,8 +76,10 @@ class GameWindow < Gosu::Window
   end
 
   def button_up(id)
-    if [Gosu::KbK, Gosu::KbP].include? id
-      battle(id)
+    unless @winner
+      if [Gosu::KbK, Gosu::KbP].include? id
+        battle(id)
+      end
     end
   end
 end
