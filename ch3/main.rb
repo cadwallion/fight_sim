@@ -1,7 +1,12 @@
 $:.push File.join(File.dirname(__FILE__))
 require 'monster'
 require 'player'
-require 'gosu'
+begin
+  require 'gosu'
+rescue NameError
+  puts "You do not have gosu installed.  To install, run `gem install gosu` and then run this again."
+  Process.exit!
+end
 
 module ZOrder
   Background, UI = *0..1
